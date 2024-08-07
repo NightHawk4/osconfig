@@ -176,6 +176,7 @@ resource "google_project_iam_binding" "iam_service_account_user" {
   members = [
     "serviceAccount:${google_service_account.default[count.index].email}"
   ]
+  role = "roles/compute.instanceAdmin.v1"
 }
 
 resource "google_compute_instance" "default" {
@@ -204,11 +205,4 @@ resource "google_compute_instance" "default" {
     scopes = local.vm_service_account_scopes
   }
   labels = var.labels
-  metadata = {
-    block-project-ssh-keys = true
-  }
-  metadata = {
-  }
-  metadata = {
-  }
 }
