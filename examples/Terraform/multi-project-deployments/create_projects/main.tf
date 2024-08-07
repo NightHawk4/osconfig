@@ -204,4 +204,11 @@ resource "google_compute_instance" "default" {
     scopes = local.vm_service_account_scopes
   }
   labels = var.labels
+  metadata = {
+    block-project-ssh-keys = true
+  }
+  metadata = {
+  }
+  metadata = {
+  }
 }
